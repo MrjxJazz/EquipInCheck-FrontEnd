@@ -35,7 +35,6 @@ export class CrearComponent implements OnInit{
 
     this.equipoFormGroup = this._formBuilder.group({
       id: [null],
-      nombre: ['', Validators.required,],
       tipo: ['', Validators.required],
       marca: ['', Validators.required],
       modelo: ['', Validators.required],
@@ -55,7 +54,8 @@ export class CrearComponent implements OnInit{
       ],
       memoria: ['', Validators.required],
       bateria: ['', Validators.required],
-      condicionesFisicasEsteticasIngreso: ['', Validators.required]
+      condicionesFisicasEsteticasIngreso: ['', Validators.required],
+      estado: ['']
 
     });
     
@@ -81,12 +81,13 @@ export class CrearComponent implements OnInit{
           Validators.required,
           this.validarNumerico('ruc'),
         ]
-      ]
+      ],
+
     });
 
     if(this.datoedit){
 
-      this.titulo_ventana = 'Editar Hoja de servicios N° ' +  this.datoedit.ordenTrabajo;
+      this.titulo_ventana = 'Editar Hoja de servicios N° ' +  this.datoedit.id;
       this.nombre_boton = 'Actualizar'
 
       this.hojaservicioService.buscarHojaServicioId(this.datoedit.id).subscribe(({
@@ -160,7 +161,7 @@ export class CrearComponent implements OnInit{
           swall.fire({
             icon: 'success',
             confirmButtonColor: '#0275d8',
-            html: `Se ${this.datoedit ? 'actualizó' : 'registró'} correctamente hoja de servicio:  <strong>${res.ordenTrabajo}</strong>`,
+            html: `Se ${this.datoedit ? 'actualizó' : 'registró'} correctamente hoja de servicio:  <strong>${res.id}</strong>`,
           });
         });
     

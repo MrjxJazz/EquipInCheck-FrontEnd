@@ -21,7 +21,7 @@ export class HojaServiciosComponent implements AfterViewInit , OnInit{
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  columnas: string[] = ['ORDEN', 'FECHA INGRESO', 'CLIENTE', 'CEDULA', 'EQUIPO', 'TIPO EQUIPO', 'TECNICO','ACCIONES'];
+  columnas: string[] = ['ORDEN', 'FECHA INGRESO', 'CLIENTE', 'CEDULA', 'EQUIPO', 'TIPO EQUIPO', 'TECNICO','ESTADO','ACCIONES'];
   dataSource = new MatTableDataSource<HojaDeServicio>;
 
   constructor(
@@ -44,6 +44,8 @@ export class HojaServiciosComponent implements AfterViewInit , OnInit{
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+
+  
 
   listarHojaServicios(){
     return this.servicio.getHojasServicios().subscribe(
@@ -87,7 +89,7 @@ export class HojaServiciosComponent implements AfterViewInit , OnInit{
   eliminarHojaServicio(fila: any): void {
 
 
-    const pregunta = `¿Estás seguro de eliminar a Hoja de servicio con la orden <strong>${fila.ordenTrabajo}</strong>?`;
+    const pregunta = `¿Estás seguro de eliminar a Hoja de servicio con la orden <strong>${fila.id}</strong>?`;
     const mensajeBoton = `Sí, eliminar!`;
     const mensajeConfirmacion = `Hoja Servicio eliminado con éxito!`;
 

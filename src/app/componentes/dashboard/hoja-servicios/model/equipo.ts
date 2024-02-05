@@ -15,6 +15,8 @@ export interface Equipo {
     serie: string;
     memoria: string;
     bateria: string;
+    estado: string;
+
     condicionesFisicasEsteticasIngreso: string;
 
   }
