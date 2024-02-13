@@ -7,7 +7,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Roles, Usuario } from '../model/usuario';
 import swall from 'sweetalert2';
 
-
 @Component({
   selector: 'app-crear',
   templateUrl: './crear.component.html',

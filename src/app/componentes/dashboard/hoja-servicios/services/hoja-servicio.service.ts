@@ -34,8 +34,11 @@ export class HojaServicioService {
 
   eliminarHojaServicio(id: number): Observable<any> {
     return this.http.delete(`${baseUrl}/api/hojas-de-servicio/${id}`);
-
   }
+
+
+
+  
 
 
 }

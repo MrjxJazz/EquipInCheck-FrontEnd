@@ -40,10 +40,28 @@ export class HojaServiciosComponent implements AfterViewInit , OnInit{
     this.dataSource.paginator = this.paginator;
   }
 
-  aplicarFiltro(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+  aplicarFiltro(valor: string) {
+    // Convierte el valor de entrada a minúsculas
+    const filtro = valor.trim().toLowerCase();
+    
+    // Aplica el filtro solo si el valor de entrada es un número
+    if (!isNaN(Number(filtro))) {
+      this.dataSource.filterPredicate = (data, filter) => {
+        return data.cliente.ruc.toLowerCase().includes(filter);
+      };
+      this.dataSource.filter = filtro;
+    } 
+  
+    // Si se está utilizando paginación, vuelve a la primera página después de aplicar el filtro
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
+
+
+  
+
+  
 
   
 
