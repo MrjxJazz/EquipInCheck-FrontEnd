@@ -18,7 +18,7 @@
                             <div class="row">
                                 <div class="col-8">
                                     <mat-form-field style="width: 100%;">
-                                        <mat-label>Filtro por cédula de cliente</mat-label>
+                                        <mat-label>Búsqueda por cédula de cliente</mat-label>
                                         <input matInput (keyup)="aplicarFiltro(input.value)" style="width: 100%;" placeholder="Cédula" #input>
                                     </mat-form-field>
                                 </div>
@@ -28,7 +28,7 @@
                             </div>
                         </div>
                         <div class="col-6 text-end">
-                            <button class="btn btn-primary" (click)="abrirDialogoNuevoHojaServicio()">Nuevo Hoja de servicio</button>
+                            <button class="btn btn-primary" (click)="abrirDialogoNuevoHojaServicio()">Nueva hoja de servicio</button>
                         </div>
                     </div>
                     <br>
@@ -38,12 +38,12 @@
 
                             <ng-container matColumnDef="ORDEN">
                                 <th mat-header-cell *matHeaderCellDef> Orden</th>
-                                <td mat-cell *matCellDef="let fila"> {{fila.ordenTrabajo}} </td>
+                                <td mat-cell *matCellDef="let fila"> {{fila.id}} </td>
                             </ng-container>
 
                             <ng-container matColumnDef="FECHA INGRESO">
-                                <th mat-header-cell *matHeaderCellDef> Fecha de ingreso </th>
-                                <td mat-cell *matCellDef="let fila"> {{ fila.fechaIngreso | date: 'dd/MM/yyyy HH:mm:ss'
+                                <th mat-header-cell *matHeaderCellDef> Fecha de ingreso y Hora </th>
+                                <td mat-cell *matCellDef="let fila"> {{ fila.fechaIngreso |  date: 'dd/MM/yyyy HH:mm:ss'
                                     }}</td>
                             </ng-container>
 
